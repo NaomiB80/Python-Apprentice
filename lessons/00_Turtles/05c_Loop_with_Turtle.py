@@ -7,5 +7,8 @@ write a new program that uses a loop to draw a pentagon.
 ( You can cut and past most of it! )
 
 """
+for i in range(5):
+    tina.forward(90)
+    tina.left(72)
 
 ... # Your code here
