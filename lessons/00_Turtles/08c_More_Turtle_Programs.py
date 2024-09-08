@@ -55,7 +55,7 @@ t = turtle.Turtle()
 set_turtle_image(t, "moustache2.gif")
 
 t.penup()
-t.speed(3)
+t.speed(2)
  
 for i in range(1):
     t.goto(200,-200)
