@@ -42,4 +42,4 @@ for i in range(60):
     t.right(360/num_shapes)
 
 t.end_fill()
-t.exitonclick()
+turtle.exitonclick()
