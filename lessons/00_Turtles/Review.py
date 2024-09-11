@@ -19,6 +19,9 @@ def drawPolygon(x, y, sides, t):
    
 drawPolygon(-100, 100, 5, t)
 drawPolygon(-100, 100, 4, t)
+drawPolygon(-100, 100, 3, t)
+drawPolygon(-100, 100, 2, t)
+drawPolygon(-100, 100, 1, t)
 
 turtle.exitonclick()
 

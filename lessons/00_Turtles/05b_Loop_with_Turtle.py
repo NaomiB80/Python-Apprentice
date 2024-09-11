@@ -28,8 +28,8 @@ tina.speed(2)                           # Make the turtle move as fast, but not 
 # tina.forward(150)
 # tina.left(90)
 
-# for i in range(4):
-    # tina.forward(100)
-    # tina.left(90)
+for i in range(4):
+    tina.forward(100)
+    tina.left(90)
 
 turtle.exitonclick()                    # Close the window when we click on it
