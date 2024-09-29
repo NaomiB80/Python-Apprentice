@@ -63,14 +63,11 @@ age =  simpledialog.askinteger("Your Age", "How old are you?")
 messagebox.showinfo('What you are', determine_age(age))
 # Ask the user's age
 
-# age = float(input("Enter your age:" ))
-
 
 # Use if statements to determine the age group
 # and create a message
 
 # Show the message to the user
-
 
 window.mainloop()  # Keeps the window open
 
