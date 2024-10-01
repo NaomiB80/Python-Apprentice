@@ -10,7 +10,7 @@ at the comments and the code snippets in the previous lessons, like
 """
 
 # Import the required modules
-from tkinter import messagebox, simpledialog, Tk # import required modules
+from tkinter import messagebox, simpledialog, Tk 
 
 # Create a window object
 window = Tk()     
@@ -18,21 +18,17 @@ window = Tk()
 # Hide the window, hint: use the withdraw method
 window.withdraw()
 
-def add_two_numbers(a, b):
-    a = "Type_in_your_first_number"
-    b = "Type_in_your_second_number"
-
-    sum_of_two_number = (a + b)
-    return "sum_pf_two_numbers"
 # Ask the user for the first number   
 
-add =  simpledialog.askinteger("First Number", "Type_in_your_first_number")
+number1 =  simpledialog.askinteger("First Number", "Type in your first number")
 
 # Ask the user for the second number
-add =  simpledialog.askinteger("Second Number", "Type_in_your_second_number")
+number2 =  simpledialog.askinteger("Second Number", "Type in your second number")
+
+sum = number1 + number2
 
 # Display the sum of the two numbers 
-messagebox.showinfo('Sum of the two numbers', add_two_numbers)
+messagebox.showinfo("Sum of the two numbers is ", sum)
 
 # Keep the window open
 window.mainloop() 
