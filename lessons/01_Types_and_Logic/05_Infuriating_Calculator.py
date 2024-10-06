@@ -54,11 +54,11 @@ def determine_math_operation(operation):
       return "number1 * number2"
    elif operation <= Division:
       return "number1 / number2"
+   else:
+      return "operation unknown"
    
 # If the user enters an unknown operation, display an error message. ( use messagebox.showerror()
-operation = simpledialog.ask()
-
-messagebox.showerror("Unknown operation")
+operation = simpledialog.askstring()
 
 messagebox.showinfo("Answer is ", determine_math_operation(operation))
 
