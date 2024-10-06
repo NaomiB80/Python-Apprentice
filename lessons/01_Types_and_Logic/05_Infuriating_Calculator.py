@@ -41,10 +41,10 @@ mathoperation =  simpledialog.askstring("Math Operation", "Type in your math ope
 
 # Use if-elif-else statements to provide the desired math operation on the numbers and display the result.
 def determine_math_operation(operation):
-   Addition = Addition
-   Subtraction = Subtraction
-   Multiplication = Multiplication
-   Division = Division
+   Addition = number1 + number2
+   Subtraction = number1 - number2
+   Multiplication = number1 * number2
+   Division = number1 / number2
 
    if operation <= Addition:
       return "number1 + number2"
@@ -56,7 +56,9 @@ def determine_math_operation(operation):
       return "number1 / number2"
    
 # If the user enters an unknown operation, display an error message. ( use messagebox.showerror()
-operation =  simpledialog.askinteger()
+operation = simpledialog.ask()
+
+messagebox.showerror("Unknown operation")
 
 messagebox.showinfo("Answer is ", determine_math_operation(operation))
 
