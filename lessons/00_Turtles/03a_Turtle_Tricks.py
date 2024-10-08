@@ -12,18 +12,40 @@ to see how to use the turtle commands.
 import turtle                           # Tell Python we want to work with the turtle
 turtle.setup (width=600, height=600)    # Set the size of the window
 
-tina = turtle.Turtle()                  # Create a turtle named tina
+t = turtle.Turtle()                  # Create a turtle named tina
 
 # Use tina.forward() and tina.left() to draw a triangle
 # Make each side of the triangle a different color with 
 # tina.pencolor()
-tina.forward(100)
-tina.left(90)
-tina.forward(100)
-tina.left(135)
-tina.forward(150)
 
+t.speed(2)
+t.penup()
+t.goto(-200,-100)
+t.pencolor('black')
+t.fillcolor('red')
+t.pendown()
+t.begin_fill()
 
-... # Your code here
+def draw_house():
+    for i in range(4):
+        t.forward(100)
+        t.left(90)
+        t.forward(75)
+        t.left(90)
+    t.end_fill()
+    t.penup()
+    t.goto(-155,-100)
+    t.pendown()
+    t.pencolor('brown')
+    t.fillcolor('brown')
+    t.begin_fill
+    for i in range(4):
+        t.forward(10)
+        t.left(90)
+        t.forward(20)
+        t.left(90)
+    t.end_fill
+
+draw_house()
 
 turtle.exitonclick()                    # Close the window when we click on it
