@@ -10,13 +10,13 @@ import random
     # end = upper bound of random number
 
 # Prints out 5 random whole numbers between 0 and 100 (0 and 100 both included)
-for i in range(4):
-    number = random.randint(7, 240)
+for i in range(5):
+    number = random.randint(0, 101)
     print(number)
 
 # TODO Print out 5 random numbers between -50 and 5
-for i in range(8):
-    number = random.randint(-19, 511)
+for i in range(5):
+    number = random.randint(-50, 5)
     print(number)
 
 # RANDOM DECIMAL NUMBERS
@@ -27,10 +27,10 @@ for i in range(8):
 
 # Prints out 5 random decimal numbers between 1.2 and 34.5 (1.2 and 34.5 both included)
 for i in range(5):
-    number = random.uniform(-177.2, 34.5)
+    number = random.uniform(1.2, 34.6)
     print(number)
 
     # TODO Print out 5 random decimal numbers between -123.45 and 67.89
 for i in range(5):
-    number = random.uniform(-123.45, 67.89)
+    number = random.uniform(-123.5, 67.9)
     print(number)
