@@ -19,10 +19,20 @@ t = turtle.Turtle()                  # Create a turtle named tina
 # tina.pencolor()
 
 t.speed(2)
+t.goto(-300,-100)
+t.begin_fill()
+t.pencolor('blue')
+t.fillcolor('blue')
+
+for i in range(4):
+    t.forward(600)   
+    t.left(90) 
+
+t.end_fill()
 t.penup()
 t.goto(-200,-100)
-t.pencolor('white')
-t.fillcolor('blue')
+t.pencolor('red')
+t.fillcolor('red')
 t.begin_fill()
 t.pendown()
 
@@ -60,15 +70,66 @@ def draw_house():
     t.fillcolor('orange')
     t.begin_fill()
     t.pendown()
-    t.forward(100)
-    t.left(100)
+    t.forward(105)
+    t.left(120)
     t.forward(50)
-    t.left(100)
-    t.forward(80)
+    t.left(60)
+    t.forward(60)
     t.left(60)
     t.forward(50)
     t.end_fill()
 
 draw_house()
+
+t.penup()
+t.goto(-300,-160)
+t.begin_fill()
+t.pencolor ('black')
+t.fillcolor ('black')
+t.pendown()
+t.left(120)
+
+for i in range(2):
+    t.forward(600)
+    t.left(90)
+    t.forward(50)
+    t.left(90)
+
+t.end_fill()
+t.goto(-300,-135)
+t.pencolor('yellow')
+
+for i in range(15):
+    t.forward(20)
+    t.penup()
+    t.forward(20)
+    t.pendown()
+
+t.penup()
+t.goto(-300,-110)
+t.fillcolor('green')
+t.pencolor('green')
+t.begin_fill()
+t.pendown()
+
+for i in range(2):
+    t.forward(600)
+    t.left(90)
+    t.forward(10)
+    t.left(90)
+    
+t.end_fill()
+t.left(270)
+t.forward(150)
+t.left(90)
+t.begin_fill()
+
+for i in range(2):
+    t.forward(600)
+    t.left(90)
+    t.forward(100)
+    t.left(90)
+
+t.end_fill()
 
 turtle.exitonclick()                    # Close the window when we click on it
