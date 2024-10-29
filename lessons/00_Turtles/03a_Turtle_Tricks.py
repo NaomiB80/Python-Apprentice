@@ -18,7 +18,7 @@ t = turtle.Turtle()                  # Create a turtle named tina
 # Make each side of the triangle a different color with 
 # tina.pencolor()
 
-t.speed(2)
+t.speed(15)
 t.goto(-300,-100)
 t.begin_fill()
 t.pencolor('blue')
@@ -130,15 +130,14 @@ for i in range(2):
     t.left(90)
 
 t.penup()
-t.end_fill()
-t.fillcolor('brown')
-t.pencolor('brown')
-t.begin_fill()
-
-t.goto(-80,-100)
+t.goto(-60,-100)
 t.pendown()
 
 def draw_tree():
+    t.end_fill()
+    t.fillcolor('brown')
+    t.pencolor('brown')
+    t.begin_fill()
     for i in range(2):
         t.forward(15)
         t.left(90)
@@ -152,14 +151,63 @@ def draw_tree():
     t.fillcolor('green')
     t.pencolor('green')
     t.begin_fill()
-    t.left(390)
-    t.forward(40)
-    for i in range(4):
+    t.forward(-41)
+    t.setheading(0)
+    for i in range(3):
         t.left(120)
-        t.forward(40)
-    t.end_fill
-    
+        t.forward(50)
+    t.end_fill()
+
 draw_tree()
+
+t.penup()
+t.goto(-240,-100)
+t.pendown()
+
+draw_tree()
+
+t.penup()
+t.goto(150,-100)
+t.pendown()
+
+draw_tree()
+
+def draw_small_tree():
+    t.end_fill()
+    t.fillcolor('brown')
+    t.pencolor('brown')
+    t.begin_fill()
+    for i in range(2):
+        t.forward(10)
+        t.left(90)
+        t.forward(25)
+        t.left(90)
+    t.end_fill()
+    t.left(90)
+    t.forward(20)
+    t.left(90)
+    t.forward(10)
+    t.fillcolor('green')
+    t.pencolor('green')
+    t.begin_fill()
+    t.forward(-30)
+    t.setheading(0)
+    for i in range(3):
+        t.left(120)
+        t.forward(30)
+    t.end_fill()
+
+t.penup()
+t.goto(-280,-100)
+t.pendown()
+
+draw_small_tree()
+
+t.penup()
+t.goto(120,-100)
+t.pendown()
+
+draw_small_tree()
 
 t.penup()
 t.fillcolor('yellow')
@@ -169,5 +217,34 @@ t.pendown()
 t.pencolor('yellow')
 t.circle(30)
 t.end_fill()
+
+t.penup()
+t.goto(-180,170)
+t.pendown()
+
+def draw_cloud():
+    t.fillcolor('white')
+    t.pencolor('white')
+    t.begin_fill()
+    t.circle(15)
+    t.forward(25)
+    t.circle(30)
+    t.forward(42)
+    t.circle(20)
+    t.end_fill()
+
+draw_cloud()
+
+t.penup()
+t.goto(0,130)
+t.pendown()
+
+draw_cloud()
+
+t.penup()
+t.goto(-310,70)
+t.pendown()
+
+draw_cloud()
 
 turtle.exitonclick()                    # Close the window when we click on it
