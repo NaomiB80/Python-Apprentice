@@ -7,7 +7,6 @@ to see how to use the turtle commands.
 
 
 """
-
 # These lines are needed in most turtle programs
 import turtle                           # Tell Python we want to work with the turtle
 turtle.setup (width=600, height=600)    # Set the size of the window
@@ -18,7 +17,7 @@ t = turtle.Turtle()                  # Create a turtle named tina
 # Make each side of the triangle a different color with 
 # tina.pencolor()
 
-t.speed(15)
+t.speed(8)
 t.goto(-300,-100)
 t.begin_fill()
 t.pencolor('blue')
