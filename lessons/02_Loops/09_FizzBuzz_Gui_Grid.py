@@ -35,20 +35,19 @@ app = App("Numbers Grid", layout="grid")
 # Or you can use a single loop and calculate the row and column
 for i in range(10):
     for j in range(10):
-        print(f"{j+i*10+1}", end= ' ')
-    print('')
+        if j+i*10+1 % 5 == 0:
+            Text(app, text='🦡', grid= [j, i], color='black' )
+        elif j+i*10+1 % 3 == 0:
+            Text(app, text='🍄', grid= [j, i], color='black' )
+        elif j+i*10+1 % 15 == 0:
+            Text(app, text='🐍', grid= [j, i], color='black' )
+        else:
+            Text(app, text=str(j+i*10+1), grid=[j, i], color='black')
 
 # In the loop, calculate or increment the number
 
 # Use % determing the display, using fizzbuzz rules
-if i % 5 == 0:
-    print('🦡')
-elif i % 3 == 0:
-    print('🍄')
-elif i % 15 == 0:
-    print('🐍')
-else:
-    print(i)
+
 # If you are displaying a number, calculate the sum of the digits and determine the color
 
 # Call Text(app, text='...', grid=[col, row], color=...) to display something. 
