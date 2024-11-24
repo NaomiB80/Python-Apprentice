@@ -25,6 +25,9 @@ an error message will be displayed and new definitions will not be added.
 
 
 def add_definition(db, key, value):
+    db.add(value, key)
+
+
     """
     Add a new definition to the database.
 
@@ -47,6 +50,8 @@ def add_definition(db, key, value):
 
 
 def delete_definition(db, key):
+    del db[key]
+
     """
     Deletes the definition associated with the given key from the database.
 
