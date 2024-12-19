@@ -98,10 +98,10 @@ def is_funny(definition, value, word):
 
 def update_listbox(db, definition):
     l = []
-
-    for definition in db:
-        l.append(definition)
+    for key, value in db.items():
+        l.append( str(key) + ": " + str(value)  )
     
+
     """
     Update the listbox with the current definitions in the database.1
 
