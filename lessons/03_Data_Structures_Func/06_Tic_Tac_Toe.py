@@ -7,18 +7,36 @@ O_MARK = "O"
 # Implement check_row() and check_win() to allow the game to check if a player has won
 # IMPORTANT! In your code, you should use the constants X_MARK and O_MARK instead of the strings "x" and "o"
 
-def check_row(l):
-    """Check if a player won on a row
-    Args:
-        l: a 3 element iterable
+# def check_row(l):
+#     """Check if a player won on a row
+#     Args:
+#         l: a 3 element iterable
         
-    Returns:
-        The winner's token ( x or o ) if there is one, otherwise None
-        """
+#     Returns:
+#         The winner's token ( x or o ) if there is one, otherwise None
+#         """
 
-    return None
+#     return None
 
 def check_win(board):
+    if board[0][0] == board[0][1] == board[0][2] == board[0][0]:
+        return board[0][0]
+    elif board[1][0] == board[1][1] == board[1][2] == board[1][0]:
+        return board[1][0]
+    elif board[2][0] == board[2][1] == board[2][2] == board[2][0]:
+        return board[2][0]
+    elif board[0][2] == board[1][1] == board[2][0] == board[0][2]:
+        return board[0][2]
+    elif board[0][0] == board[1][1] == board[2][2] == board[0][0]:
+        return [0][0]
+    elif board[0][0] == board[1][0] == board[2][0] == board[0][0]:
+        return board[0][0]
+    elif board[0][1] == board[1][1] == board[2][1] == board[0][1]:
+        return board[0][1]
+    elif board[0][2] == board[1][2] == board[2][2] == board[0][2]:
+        return board[0][2]
+    else:
+        return None
     """Check if a player has won on a board
     Args:
         board: a 3x3 2D array
@@ -26,8 +44,6 @@ def check_win(board):
     Returns:
         The winner's token ( x or o ) if there is one, otherwise None
     """
-
-    return None
 
 # The following code is the main part of the program. It creates a GUI for the
 # game and handles the game logic. Implement the functions above first, then

@@ -26,9 +26,9 @@ an error message will be displayed and new definitions will not be added.
 
 def add_definition(db, key, value):
     if len(db)>5:
-        return error ("The maximum amount of definitions in the data base has been reached!")
+        return error ("The maximum amount of definitions in the database has been reached!")
     else:
-        db.add[key: value]
+        db.setdefault(key, value)
 
 
     """
@@ -72,10 +72,9 @@ def delete_definition(db, key):
     pass
 
 
-def is_funny(definition, value, word):
+def is_funny(definition, word):
     funny_words = ['fun', 'funny', 'hilarious', 'amusing', 'pants', 'spleen']
 
-    definition = [value]
     if word in funny_words in definition:
         return True
     else:
@@ -96,11 +95,12 @@ def is_funny(definition, value, word):
 
     # return False
 
-def update_listbox(db, definition):
+def update_listbox(db):
     l = []
     for key, value in db.items():
         l.append( str(key) + ": " + str(value)  )
     
+    return l
 
     """
     Update the listbox with the current definitions in the database.1
@@ -121,8 +121,6 @@ def update_listbox(db, definition):
     # iterate over the dict's key-value pairs and turn them into
     # strings, then add the strings to the list with .append()
 
-    return l
-
 ################################################################
 
 # Function to add a definition
@@ -133,7 +131,7 @@ def _add_definition():
     
 
     if word and definition:
-        if is_funny(definition):
+        if is_funny(definition, word):
             definition = "😂 " + definition + " 🤡"
         add_definition(db, word, definition)
         _update_listbox(db)
