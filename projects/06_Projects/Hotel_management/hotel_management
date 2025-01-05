@@ -1,45 +1,61 @@
-def checking_in():
-
-    hotel_rooms = {
-    open: 100,
-    open: 101,
-    open: 102,
-    open: 103,
-    open: 104,
-    open: 200,
-    open: 201,
-    open: 202,
-    open: 203,
-    open: 204,
-    open: 300,
-    open: 301,
-    open: 302,
-    open: 303,
-    open: 304,
+hotel_rooms = {
+    100: 'open',
+    101: 'open',
+    102: 'open',
+    103: 'open',
+    104: 'open',
+    200: 'open',
+    201: 'open',
+    202: 'open',
+    203: 'open',
+    204: 'open',
+    300: 'open',
+    301: 'open',
+    302: 'open',
+    303: 'open',
+    304: 'open'
 }
-    
-    r = []
+
+def checking_in():
+    print(hotel_rooms)
 
     pick_room = input("Which room would you like to reserve?")
-    room_name = input("What is your name?")
 
-    for rooms in hotel_rooms():
-        if pick_room in rooms:
-            r.append (f"#{room_name}: {pick_room}")
+    if hotel_rooms.get == 'open':
+        pick_room = room_name1
+        print('You have successfully reserved your room')
+    else:
+        print('This room is already reserved') 
 
-    for i in enumerate(r):
-        print(i)
-        print(r)
-    
+    room_name1 = input("What is your name?")
+    stay_length = input("How many days do you want to stay?")
+
     cost = []
     
-    if pick_room<105:
-        cost.append(110)
-    elif pick_room>105<205:
-       cost.append(120) 
-    elif pick_room>205:
-        cost.append(130)
+    Floor1 = (100, 101, 102, 103, 104)
+    Floor2 = (200, 201, 202, 203, 204)
+    Floor3 = (300, 301, 302, 303, 304)
 
+    if pick_room == Floor1:
+        cost.append(stay_length * 110)
+    elif pick_room == Floor2:
+       cost.append(stay_length * 120) 
+    elif pick_room == Floor3:
+        cost.append(stay_length * 130)
+
+    # c = 100 * stay_length
+    # cost.append(c)
+
+    print(cost)
+    
 checking_in()
 
+def checking_out():
+    room_name2 = input("What is your name?")
+    your_room = input("What room did you stay in?")
 
+    if hotel_rooms.get == room_name2:
+        your_room = 'open'
+        print('You have successfully checked out')
+    else:
+        print('Try checking the details you put it. This doesnt seem to match') 
