@@ -1,3 +1,9 @@
+from tkinter import messagebox, simpledialog, Tk 
+
+window = Tk()     
+
+window.withdraw()
+
 hotel_rooms = {
     100: 'open',
     101: 'open',
@@ -15,33 +21,32 @@ hotel_rooms = {
     303: 'open',
     304: 'open'
 }
+messagebox.showinfo("Rooms", hotel_rooms)
 
 def checking_in():
-    print(hotel_rooms)
-
-    pick_room = input("Which room would you like to reserve?")
+    pick_room = simpledialog.askinteger("Reserving room", "Which room would you like to reserve?" )
 
     if hotel_rooms.get(pick_room) == 'open':
-        room_name1 = input("What is your name?")
-        stay_length = input("How many days do you want to stay?")
-        hotel_rooms[pick_room] = room_name1
-        print('You have successfully reserved your room')
+        room_name1 = simpledialog.askstring("Room name", "What name would you like to put this room under?")
+        stay_length = simpledialog.askinteger("Length stay", "How many days do you want to stay?")
+        hotel_rooms[pick_room] = "Reserved: roomname1"
+        messagebox.showinfo("Successful", "{} has successfully reserved room {} for {} days")
+        messagebox.showinfo("Updated rooms", hotel_rooms)
     else:
-        print('This room is already reserved') 
-    
-    Floor1 = (100, 101, 102, 103, 104)
-    Floor2 = (200, 201, 202, 203, 204)
-    Floor3 = (300, 301, 302, 303, 304)
+        messagebox.showinfo("Error", "Sorry, this room is already reserved")
 
-    if 100 <= pick_room < 200:
+    Floor1 = {(100), (101), (102), (103), (104)}
+    Floor2 = {(200), (201), (202), (203), (204)}
+    Floor3 = {(300), (301), (302), (303), (304)}
+    
+    if pick_room == Floor1:
         cost = stay_length * 110
-    elif 200 <= pick_room < 300:
-       cost = stay_length * 120
-    else:
+    elif pick_room == Floor2:
+        cost = stay_length * 120
+    elif pick_room == Floor3:
         cost = stay_length * 130
+    messagebox.showinfo("Cost", cost)
 
-    print(cost)
-    
 checking_in()
 
 def checking_out():
@@ -53,3 +58,5 @@ def checking_out():
         print('You have successfully checked out')
     else:
         print('Try checking the details you put it. This doesnt seem to match') 
+    
+    window.mainloop() 
