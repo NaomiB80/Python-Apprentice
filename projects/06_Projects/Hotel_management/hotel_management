@@ -21,30 +21,24 @@ def checking_in():
 
     pick_room = input("Which room would you like to reserve?")
 
-    if hotel_rooms.get == 'open':
-        pick_room = room_name1
+    if hotel_rooms.get(pick_room) == 'open':
+        room_name1 = input("What is your name?")
+        stay_length = input("How many days do you want to stay?")
+        hotel_rooms[pick_room] = room_name1
         print('You have successfully reserved your room')
     else:
         print('This room is already reserved') 
-
-    room_name1 = input("What is your name?")
-    stay_length = input("How many days do you want to stay?")
-
-    cost = []
     
     Floor1 = (100, 101, 102, 103, 104)
     Floor2 = (200, 201, 202, 203, 204)
     Floor3 = (300, 301, 302, 303, 304)
 
-    if pick_room == Floor1:
-        cost.append(stay_length * 110)
-    elif pick_room == Floor2:
-       cost.append(stay_length * 120) 
-    elif pick_room == Floor3:
-        cost.append(stay_length * 130)
-
-    # c = 100 * stay_length
-    # cost.append(c)
+    if 100 <= pick_room < 200:
+        cost = stay_length * 110
+    elif 200 <= pick_room < 300:
+       cost = stay_length * 120
+    else:
+        cost = stay_length * 130
 
     print(cost)
     
