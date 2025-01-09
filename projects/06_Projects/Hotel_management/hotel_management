@@ -21,7 +21,7 @@ hotel_rooms = {
     303: 'open',
     304: 'open'
 }
-messagebox.showinfo("Rooms", hotel_rooms)
+messagebox.showinfo("Hotel rooms", hotel_rooms)
 
 def checking_in():
     pick_room = simpledialog.askinteger("Reserving room", "Which room would you like to reserve?" )
@@ -29,22 +29,36 @@ def checking_in():
     if hotel_rooms.get(pick_room) == 'open':
         room_name1 = simpledialog.askstring("Room name", "What name would you like to put this room under?")
         stay_length = simpledialog.askinteger("Length stay", "How many days do you want to stay?")
-        hotel_rooms[pick_room] = "Reserved: roomname1"
-        messagebox.showinfo("Successful", "{} has successfully reserved room {} for {} days")
+        hotel_rooms[pick_room] = f"Reserved by {room_name1}"
+        messagebox.showinfo("Successful", f"{room_name1} has successfully reserved room {pick_room} for {stay_length} days")
         messagebox.showinfo("Updated rooms", hotel_rooms)
     else:
         messagebox.showinfo("Error", "Sorry, this room is already reserved")
 
-    Floor1 = {(100), (101), (102), (103), (104)}
-    Floor2 = {(200), (201), (202), (203), (204)}
-    Floor3 = {(300), (301), (302), (303), (304)}
-    
-    if pick_room == Floor1:
-        cost = stay_length * 110
-    elif pick_room == Floor2:
-        cost = stay_length * 120
-    elif pick_room == Floor3:
-        cost = stay_length * 130
+    cost = []
+
+    if pick_room == 100:
+        cost.append(stay_length * 110)
+    elif pick_room == 101:
+        cost.append(stay_length * 110)
+    elif pick_room == 102:
+        cost.append(stay_length * 110)
+    elif pick_room == 103:
+        cost.append(stay_length * 110)
+    elif pick_room == 104:
+        cost.append(stay_length * 110)
+    elif pick_room == 200:
+        cost.append(stay_length * 120)
+    elif pick_room == 201:
+        cost.append(stay_length * 120)
+    elif pick_room == 202:
+        cost.append(stay_length * 120)
+    elif pick_room == 203:
+        cost.append(stay_length * 120)
+    elif pick_room == 204:
+        cost.append(stay_length * 120)
+    else:
+        cost.append(stay_length * 130)
     messagebox.showinfo("Cost", cost)
 
 checking_in()
