@@ -69,26 +69,26 @@ def checking_in():
         cost.append(stay_length * 130)
 
     if extras == 'Pool access' or 'Gym access' or 'Meals':
-        cost.append(cost + 30)
+        cost = [cost[0] + 30]
 
     messagebox.showinfo("Total cost", cost)
     cost_pay = simpledialog.askstring("Please pay your total cost", cost)
 
     if cost_pay == cost:
-        messagebox.showinfo("Payment accepted", "Enjoy your stay!")
+        messagebox.showinfo("Success", "Payment accepted")
+        messagebox.showinfo("Enjoy your stay!", f"{room_name1} has successfully reserved room {pick_room} for {stay_length} days")
+        messagebox.showinfo("Updated rooms", hotel_rooms)
     else:
         messagebox.showinfo("Payment declined", "Please try again")
-
-    messagebox.showinfo("Successful", f"{room_name1} has successfully reserved room {pick_room} for {stay_length} days")
-    messagebox.showinfo("Updated rooms", hotel_rooms)
+        hotel_rooms[pick_room] = 'open'
     
 
 def checking_out():
     messagebox.showinfo("Hotel rooms", hotel_rooms)
     room_name2 = simpledialog.askstring("Room name", "What is your name?")
     your_room = simpledialog.askinteger("Hotel room", "What room did you stay in?")
-    if your_room == f'Reserved by {room_name2}':
-        your_room = 'open'
+    if hotel_rooms.get(your_room) == f'Reserved by {room_name2}':
+        hotel_rooms[your_room] = 'open'
         messagebox.showinfo("Success", "You have successfully checked out")
         messagebox.showinfo("Updated rooms", hotel_rooms)
     else:
@@ -105,5 +105,5 @@ def front_desk():
         messagebox.showinfo("Error", "Please try writing that again")
 
 
-for i in range(100):
+for i in range(1000):
     front_desk()
