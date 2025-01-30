@@ -74,7 +74,7 @@ def checking_in():
     messagebox.showinfo("Total cost", cost)
     cost_pay = simpledialog.askstring("Please pay your total cost", cost)
 
-    if cost_pay == cost:
+    if cost_pay == cost[0]:
         messagebox.showinfo("Success", "Payment accepted")
         messagebox.showinfo("Enjoy your stay!", f"{room_name1} has successfully reserved room {pick_room} for {stay_length} days")
         messagebox.showinfo("Updated rooms", hotel_rooms)
