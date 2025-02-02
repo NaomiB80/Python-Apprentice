@@ -22,15 +22,24 @@ hotel_rooms = {
     304: 'open'
 }
 
-def checking_in():
+reservations = {
+
+}
+
+def checking_in1():
     messagebox.showinfo("Hotel rooms", hotel_rooms)
 
-    pick_room = simpledialog.askinteger("Reserving room", "Which room would you like to reserve?" )
+    number_of_rooms = simpledialog.askinteger("Number of rooms", "How many rooms would you like to reserve?")
+    if number_of_rooms >= 5:
+        messagebox.showinfo("Error", "That is too many rooms")
+    else:
+        for i in range(number_of_rooms):
+            pick_room = simpledialog.askinteger("Reserving room", "Which room would you like to reserve?")
 
     if hotel_rooms.get(pick_room) == 'open':
         room_name1 = simpledialog.askstring("Room name", "What name would you like to put this room under?")
         stay_length = simpledialog.askinteger("Length of stay", "How many days do you want to stay?")
-        hotel_rooms[pick_room] = f"Reserved by {room_name1}"
+        hotel_rooms[pick_room] = f'Reserved by {room_name1}'
         extras = simpledialog.askstring("Any bonuses for your stay?", "Pool access, Gym access or Meals?")
     else:
         messagebox.showinfo("Error", "Sorry, this room is already reserved")
@@ -74,13 +83,16 @@ def checking_in():
     messagebox.showinfo("Total cost", cost)
     cost_pay = simpledialog.askstring("Please pay your total cost", cost)
 
-    if cost_pay == cost[0]:
+    if cost_pay == cost_pay:
         messagebox.showinfo("Success", "Payment accepted")
         messagebox.showinfo("Enjoy your stay!", f"{room_name1} has successfully reserved room {pick_room} for {stay_length} days")
-        messagebox.showinfo("Updated rooms", hotel_rooms)
     else:
         messagebox.showinfo("Payment declined", "Please try again")
         hotel_rooms[pick_room] = 'open'
+
+    if cost_pay == cost_pay:
+        reservations[room_name1] = f"Room {pick_room}, {stay_length} days, {extras}"
+        messagebox.showinfo("Reservations", reservations)
     
 
 def checking_out():
@@ -90,7 +102,8 @@ def checking_out():
     if hotel_rooms.get(your_room) == f'Reserved by {room_name2}':
         hotel_rooms[your_room] = 'open'
         messagebox.showinfo("Success", "You have successfully checked out")
-        messagebox.showinfo("Updated rooms", hotel_rooms)
+        del reservations[room_name2]
+        messagebox.showinfo("Reservations", reservations)
     else:
         messagebox.showinfo("Error", "Try checking the details you put it. This doesnt seem to match") 
 
@@ -98,12 +111,19 @@ def checking_out():
 def front_desk():
     front_desk = simpledialog.askstring("How can I help you today", "Check in or Check out?")
     if front_desk == 'Check in':
-        checking_in()
+        checking_in1()
     elif front_desk == 'Check out':
         checking_out()
     else:
         messagebox.showinfo("Error", "Please try writing that again")
 
 
-for i in range(1000):
-    front_desk()
+def greeting():
+    greeting = simpledialog.askstring("Hello!", "Welcome to my hotel!")
+    if greeting == "Hello" or "Hi" or "Hey":
+        front_desk()
+    else:
+        messagebox.showinfo("Goodbye", "You are not welcome here!")
+
+
+greeting()
