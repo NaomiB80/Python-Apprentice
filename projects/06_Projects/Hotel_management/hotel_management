@@ -35,14 +35,13 @@ def checking_in1():
     else:
         for i in range(number_of_rooms):
             pick_room = simpledialog.askinteger("Reserving room", "Which room would you like to reserve?")
-
-    if hotel_rooms.get(pick_room) == 'open':
-        room_name1 = simpledialog.askstring("Room name", "What name would you like to put this room under?")
-        stay_length = simpledialog.askinteger("Length of stay", "How many days do you want to stay?")
-        hotel_rooms[pick_room] = f'Reserved by {room_name1}'
-        extras = simpledialog.askstring("Any bonuses for your stay?", "Pool access, Gym access or Meals?")
-    else:
-        messagebox.showinfo("Error", "Sorry, this room is already reserved")
+            if hotel_rooms.get(pick_room) == 'open':
+                room_name1 = simpledialog.askstring("Room name", "What name would you like to put this room under?")
+                stay_length = simpledialog.askinteger("Length of stay", "How many days do you want to stay?")
+                hotel_rooms[pick_room] = f'Reserved by {room_name1}'
+                extras = simpledialog.askstring("Any bonuses for your stay?", "Pool access, Gym access or Meals?")
+            else:
+                messagebox.showinfo("Error", "Sorry, this room is already reserved")
 
     cost = []
 
@@ -83,14 +82,14 @@ def checking_in1():
     messagebox.showinfo("Total cost", cost)
     cost_pay = simpledialog.askstring("Please pay your total cost", cost)
 
-    if cost_pay == cost_pay:
+    if cost_pay == cost:
         messagebox.showinfo("Success", "Payment accepted")
         messagebox.showinfo("Enjoy your stay!", f"{room_name1} has successfully reserved room {pick_room} for {stay_length} days")
     else:
         messagebox.showinfo("Payment declined", "Please try again")
         hotel_rooms[pick_room] = 'open'
 
-    if cost_pay == cost_pay:
+    if cost_pay == cost:
         reservations[room_name1] = f"Room {pick_room}, {stay_length} days, {extras}"
         messagebox.showinfo("Reservations", reservations)
     
