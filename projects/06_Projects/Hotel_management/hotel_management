@@ -33,35 +33,39 @@ def checking_in1():
     if number_of_rooms >= 5:
         messagebox.showinfo("Error", "That is too many rooms")
     else:
+        total_cost = 0
+        multiple_rooms = []
+
         for i in range(number_of_rooms):
             pick_room = simpledialog.askinteger("Reserving room", "Which room would you like to reserve?")
-            if hotel_rooms.get(pick_room) == 'open':
+            if hotel_rooms[pick_room] == 'open':
                 room_name1 = simpledialog.askstring("Room name", "What name would you like to put this room under?")
                 stay_length = simpledialog.askinteger("Length of stay", "How many days do you want to stay?")
                 hotel_rooms[pick_room] = f'Reserved by {room_name1}'
-                extras = simpledialog.askstring("Any bonuses for your stay?", "Pool access, Gym access or Meals?")
+
+                multiple_rooms.append(pick_room)
+
+                if pick_room in [100, 101, 102, 103, 104]:
+                    room_cost = 110*stay_length
+                elif pick_room in [200, 201, 202, 203, 204]:
+                    room_cost = 120*stay_length
+                elif pick_room in [300, 301, 302, 303, 304]:
+                    room_cost = 130*stay_length
+                total_cost = total_cost + room_cost
             else:
                 messagebox.showinfo("Error", "Sorry, this room is already reserved")
 
-    cost = 0
+        extras = simpledialog.askstring("Any bonuses for your stay?", "Pool access, Gym access or Meals?")
+        if extras in ['Pool access', 'Gym access', 'Meals']:
+                    total_cost = total_cost + 30
 
-    if pick_room == 100 or 101 or 102 or 103 or 104:
-        cost = 110*stay_length
-    elif pick_room == 200 or 201 or 202 or 203 or 204:
-        cost = 120*stay_length
-    elif pick_room == 300 or 301 or 302 or 303 or 304:
-        cost = 130*stay_length
-    
-    if extras == 'Pool access' or 'Gym access' or 'Meals':
-        cost = cost + 30
+    messagebox.showinfo("Total cost", f"${total_cost}")
+    cost_pay = simpledialog.askstring("Please pay your total cost", f"${total_cost}")
 
-    messagebox.showinfo("Total cost", cost)
-    cost_pay = simpledialog.askstring("Please pay your total cost", cost)
-
-    if cost_pay == cost:
+    if int(cost_pay) == total_cost:
         messagebox.showinfo("Success", "Payment accepted")
-        messagebox.showinfo("Enjoy your stay!", f"{room_name1} has successfully reserved room {pick_room} for {stay_length} days")
-        reservations[room_name1] = f"Room {pick_room}, {stay_length} days, {extras}"
+        messagebox.showinfo("Enjoy your stay!", f"{room_name1} has successfully reserved room {multiple_rooms} for {stay_length} days")
+        reservations[room_name1] = f"Room {multiple_rooms}, {stay_length} days, {extras}"
         messagebox.showinfo("Reservations", reservations)
     else:
         messagebox.showinfo("Payment declined", "Please try again")
@@ -72,7 +76,7 @@ def checking_out():
     messagebox.showinfo("Hotel rooms", hotel_rooms)
     room_name2 = simpledialog.askstring("Room name", "What is your name?")
     your_room = simpledialog.askinteger("Hotel room", "What room did you stay in?")
-    if hotel_rooms[your_room] == f'Reserved by {room_name2}':
+    if hotel_rooms.get(your_room) == f'Reserved by {room_name2}':
         hotel_rooms[your_room] = 'open'
         messagebox.showinfo("Success", "You have successfully checked out")
         del reservations[room_name2]
@@ -90,13 +94,5 @@ def front_desk():
     else:
         messagebox.showinfo("Error", "Please try writing that again")
 
-
-def greeting():
-    greeting = simpledialog.askstring("Hello!", "Welcome to my hotel!")
-    if greeting == 'Hello' or 'Hi' or 'Hey':
-        front_desk()
-    else:
-        messagebox.showinfo("Goodbye", "You are not welcome here!")
-
-
-greeting()
+for i in range(1000):
+    front_desk()
