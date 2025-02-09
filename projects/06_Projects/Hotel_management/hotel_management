@@ -74,15 +74,19 @@ def checking_in1():
 
 def checking_out():
     messagebox.showinfo("Hotel rooms", hotel_rooms)
+    number_of_reservations = simpledialog.askinteger("Number of reservations", "How many rooms did you reserve?")
     room_name2 = simpledialog.askstring("Room name", "What is your name?")
-    your_room = simpledialog.askinteger("Hotel room", "What room did you stay in?")
-    if hotel_rooms.get(your_room) == f'Reserved by {room_name2}':
-        hotel_rooms[your_room] = 'open'
-        messagebox.showinfo("Success", "You have successfully checked out")
-        del reservations[room_name2]
-        messagebox.showinfo("Reservations", reservations)
-    else:
-        messagebox.showinfo("Error", "Try checking the details you put it. This doesnt seem to match") 
+                                        
+    for i in range(number_of_reservations):
+        your_room = simpledialog.askinteger("Hotel room", "What room did you stay in?")
+        if hotel_rooms.get(your_room) == f'Reserved by {room_name2}':
+            hotel_rooms[your_room] = 'open'
+        else:
+            messagebox.showinfo("Error", "Try checking the details you put it. This doesnt seem to match") 
+    
+    del reservations[room_name2]
+    messagebox.showinfo("Reservations", reservations)
+    messagebox.showinfo("Success", "You have successfully checked out")
 
 
 def front_desk():
